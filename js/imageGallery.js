@@ -10,42 +10,57 @@ var verticalOffset = 70;
 var horizontalOffset = 50;
 var imageBorder = 2;
 var verPos = verticalOffset;
-var imageObj = new Image();
 var i = 0;
+var imgWidth;
+var imgHeight;
 
 $(document).ready(function(){
 	
 
 
 	
-	buildGallery();
+	setTimeout(function(){buildGallery();},100);
+	
+	
+	
+	function getImgSize(){
+		imgWidth = this.width;
+		imgHeight = this.height;
+		
+		return true
+	}
+			
+	function getNewImg(){
+		var imageObj = new Image();
+		imageObj.name = imagePath+images[i];
+		imageObj.onload = getImgSize;
+		imageObj.src = imagePath+images[i];
+	}
+	
 	function buildGallery(){
 		if (i < images.length) {	
 			
-			imageObj.src = imagePath+images[i];
+			getNewImg();
 			
-			var imgWidth = imageObj.width;
-			var imgHeight = imageObj.height;
 			
-			var image=images[i];
-			var imageClass=image.replace(/\.[^/.]+$/,"");
-			
-			if (i >= columns) {
-				imageGrid[i] = imgHeight/imgWidth + imageGrid[i-columns];
-				verPos = imageGrid[i-columns]*(imageWidth+imagePadding)+verticalOffset;
-			}
-			else {
-				imageGrid[i] = imgHeight/imgWidth;
-			}
-			var horPos = ((i+columns)%columns)*(imageWidth+imagePadding)+horizontalOffset;
-			var fullImage = "'"+fullImagePath+imgsFull[i]+"'";
+					var image=images[i];
+		var imageClass=image.replace(/\.[^/.]+$/,"");
+		
+		if (i >= columns) {
+			imageGrid[i] = imgHeight/imgWidth + imageGrid[i-columns];
+			verPos = imageGrid[i-columns]*(imageWidth+imagePadding)+verticalOffset;
+		}
+		else {
+			imageGrid[i] = imgHeight/imgWidth;
+		}
+		var horPos = ((i+columns)%columns)*(imageWidth+imagePadding)+horizontalOffset;
+		var fullImage = "'"+fullImagePath+imgsFull[i]+"'";
 
-			$(".gallery").append("<div class=\""+imageClass+"\"><img src=\""+imagePath+image+"\" onload=\"$(this).fadeIn(2000);\" onclick=\"imageModal("+fullImage+")\"></div>");
-			$("."+imageClass+" img").css({"width":imageWidth,"height":"auto","border":imageBorder+"px solid black","z-index":i+100});
-			$("."+imageClass).css({"display":"inline-block","padding":"5px","position":"absolute","left":horPos+"px","top":verPos+"px"});
+		$(".gallery").append("<div class=\""+imageClass+"\"><img src=\""+imagePath+image+"\" onload=\"$(this).fadeIn(2000);\" onclick=\"imageModal("+fullImage+")\"></div>");
+		$("."+imageClass+" img").css({"width":imageWidth,"height":"auto","border":imageBorder+"px solid black","z-index":i+100});
+		$("."+imageClass).css({"display":"inline-block","padding":"5px","position":"absolute","left":horPos+"px","top":verPos+"px"});
+			
 
-			
-			
 			
 			i++;
 			return setTimeout(function(){buildGallery();},100);
