@@ -16,7 +16,7 @@ $(document).ready(function(){
 	
 
 
-getNewImg(function(num){console.log(num);});
+getNewImg(function(num){console.log("Outside function size: "+num);});
 	
 	
 	
@@ -31,7 +31,7 @@ getNewImg(function(num){console.log(num);});
 		imageObj.onload = function(){
 			var imgWidth = this.width;
 			var imgHeight = this.height;
-			console.log(imgWidth);
+			console.log("Within onload function size: "+imgWidth);
 			callback.call(imgWidth);
 		};
 		imageObj.src = imagePath+images[i];
