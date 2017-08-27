@@ -40,6 +40,7 @@ $(document).ready(function(){
 			getNewImg(function(imgWidth, imgHeight){
 			
 				console.log("Within callback function size: "+imgWidth+"x"+imgHeight);
+				console.log("Actual ratio: "+(imgHeight/imgWidth));
 				
 				var image=images[i];
 				var imageClass=image.replace(/\.[^/.]+$/,"");
@@ -61,10 +62,11 @@ $(document).ready(function(){
 				$("."+imageClass+" img").css({"width":imageWidth,"height":"auto","border":imageBorder+"px solid black","z-index":i+100});
 				$("."+imageClass).css({"display":"inline-block","padding":"5px","position":"absolute","left":horPos+"px","top":verPos+"px"});
 			
+				i++;
 
 			});
 			
-			i++;
+			
 			return setTimeout(function(){buildGallery();},100);
 		}
 		else {
