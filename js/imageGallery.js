@@ -15,7 +15,7 @@ var i = 0;
 
 $(document).ready(function(){
 	
-	buildGallery();
+setTimeout(function(){buildGallery();},100);
 			
 	function getNewImg(callback){
 		var imageObj = new Image();
@@ -60,7 +60,7 @@ $(document).ready(function(){
 
 				$(".gallery").append("<div class=\""+imageClass+"\"><img src=\""+imagePath+image+"\" onload=\"$(this).fadeIn(2000);\" onclick=\"imageModal("+fullImage+")\"></div>");
 				$("."+imageClass+" img").css({"width":imageWidth,"height":"auto","border":imageBorder+"px solid black","z-index":i+100});
-				$("."+imageClass).css({"display":"inline-block","padding":"5px","position":"absolute","left":horPos+"px","top":verPos+"px"});
+				$("."+imageClass).css({"display":"inline-block","padding":"5px","position":"absolute","left":horPos+"px","top":verPos+"px","cursor":"pointer"});
 			
 				i++;
 

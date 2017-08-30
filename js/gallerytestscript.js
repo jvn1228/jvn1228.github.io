@@ -32,7 +32,7 @@ getNewImg(function(num){console.log("Outside function size: "+num);});
 			var imgWidth = this.width;
 			var imgHeight = this.height;
 			console.log("Within onload function size: "+imgWidth);
-			callback.call(imgWidth);
+			callback(imgWidth);
 		};
 		imageObj.src = imagePath+images[i];
 		return
