@@ -14,13 +14,14 @@
   
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src = "js/navigationScroll.js"></script>
+  <script src="js/add.js"></script>
 
 </head>
 
 <body class = "home">
 	<div>
 		<ul class = "navigationbar">
-			<li><a class = "active" href="">Home</a></li>
+			<li><a href="index.html">Home</a></li>
 			<li class = "dropport">
 				<a href="portfolio.html">Photo Portfolio</a>
 				<div class = "portfoliodropdown">
@@ -29,24 +30,20 @@
 				</div>
 			</li>
 			<li><a href="">Projects</a></li>
-			<li><a href="contact.html">Contact</a></li>
+			<li><a class = "active" href="">Contact</a></li>
 		</ul>
 	</div>
 	<div class = "content">
 		<ul>
 			<li class = "welcome">
-				<h1>Welcome to my site</h1>
-				<p>Here you will find photos, videos, music, programming projects, and anything else that interests me. Feel free to look around.</p>
-				<p class = "downarrow" onclick = "document.querySelector('#Aboutme').scrollIntoView({behavior: 'smooth'});">About me &#x25BC;</p>
-			</li>
-			<li class = "aboutbg" id = "Aboutme">
-				<div class = "about">
-					<h1>About me</h1>
-					<p>I'm a recent college grad who likes taking pictures and making silly websites?</p>
-					<p class = "downarrow" onclick = "document.querySelector('#anythingelse').scrollIntoView({behavior: 'smooth'});">Anything else? &#x25BC;<p>
-				</div>
-			</li>
-			<li class = "anythingelse" id = "anythingelse">
+				<h1>What am I?</h1>
+				<p> I'm a calculator </p>
+				<input type="textbox" name="numDisp1" class="textBox">
+				<input type="textbox" name="numDisp2" class="textBox">
+				<input type="button" id="plus" value="+" onclick="add()">
+				<input type="button" id="minus" value="-">
+				<input type="button" id="multiply" value="x">
+				<input type="button" id="divide" value="/">
 			</li>
 		</ul>
 	</div>
