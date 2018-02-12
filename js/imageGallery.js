@@ -62,12 +62,12 @@ setTimeout(function(){buildGallery();},100);
 				$("."+imageClass+" img").css({"width":imageWidth,"height":"auto","border":imageBorder+"px solid black","z-index":i+100});
 				$("."+imageClass).css({"display":"inline-block","padding":"5px","position":"absolute","left":horPos+"px","top":verPos+"px","cursor":"pointer"});
 			
-				i++;
+
 
 			});
 			
 			
-			return setTimeout(function(){buildGallery();},100);
+			return setTimeout(function(){i++;buildGallery();},100);
 		}
 		else {
 			return
