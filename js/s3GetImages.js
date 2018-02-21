@@ -19,9 +19,22 @@ $(document).ready(function(){
 			for(var i = 0; i < dataLength; i++){
 				images.push(data.Contents[i].Key);
 			}	
-			imageGallery(images, images, params.Bucket);
+			imageGallery(images, images, params.Bucket, 0);
 			console.log(images);
+			
+			$(window).bind('resizeEnd', function() {
+				imageGallery(images, images, params.Bucket, 1);
+				console.log(images);
+			});
 		}
 	})
+
 	
+	$(window).resize(function() {
+        if(this.resizeTO) clearTimeout(this.resizeTO);
+        this.resizeTO = setTimeout(function() {
+            $(this).trigger('resizeEnd');
+        }, 500);
+    });
+		
 })
