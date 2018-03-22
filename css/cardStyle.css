@@ -1,0 +1,56 @@
+#DeckNum {
+  font-weight: bold;
+}
+
+.card {
+  position: relative;
+  display: inline-block;
+  background-color: rgb(255,255,255);
+  border: 2px solid black;
+  border-radius: 6px;
+  padding: 5px;
+  padding-top: 15px;
+  width: 100px;
+  margin: 5px;
+  -webkit-transition: top 400ms; /* Safari */
+  transition: top 400ms;
+  top: 0;
+}
+
+.card:hover {
+  top: 15px;
+}
+
+.dot {
+  display: block;
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.R {
+  background-color: red;
+  border: 1px solid black;
+}
+
+.G {
+  background-color: green;
+  border: 1px solid black;
+}
+
+.B {
+  background-color: blue;
+  border: 1px solid black;
+}
+
+.Y {
+  background-color: yellow;
+  border: 1px solid black;
+}
+
+.blank {
+  border: 1px solid rgba(255,255,255,0);
+}
