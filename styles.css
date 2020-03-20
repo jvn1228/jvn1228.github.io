@@ -1,3 +1,8 @@
+* {
+    box-sizing: border-box;
+}
+
+
 .image-main {
   margin-bottom: 2%;
   margin-top: 2%;
